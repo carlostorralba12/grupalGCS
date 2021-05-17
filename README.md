@@ -1,0 +1,2 @@
+# grupalGCS
+Proyecto Angular/Ionic
