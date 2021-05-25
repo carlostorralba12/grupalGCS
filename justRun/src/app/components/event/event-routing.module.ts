@@ -1,3 +1,4 @@
+import { AllEventComponent } from './all-event/all-event.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,6 +8,10 @@ const routes: Routes = [
   {
     path: '',
     component: EventPage
+  },
+  {
+    path: 'all',
+    component: AllEventComponent
   }
 ];
 

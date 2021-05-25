@@ -1,6 +1,7 @@
+import { DetailPostComponent } from './detail-post/detail-post.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,8 +14,9 @@ import { PostPage } from './post.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PostPageRoutingModule
+    PostPageRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [PostPage]
+  declarations: [PostPage, DetailPostComponent]
 })
 export class PostPageModule {}
