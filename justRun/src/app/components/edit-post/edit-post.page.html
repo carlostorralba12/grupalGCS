@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formEditPost="ngForm" (ngSubmit)="onSubmit(formEditPost)">
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating" for="title">
+            Nombre
+        </ion-label>
+        <ion-input color="secondary" name= "name" type="text" id="title" #name="ngModel" [(ngModel)]="post.title"></ion-input>
+      </ion-item>
+    
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating" for="content">
+            Contenido
+        </ion-label>
+        <ion-textarea color="secondary" name= "content" type="text" id="content" #name="ngModel" [(ngModel)]="post.content"></ion-textarea>
+      </ion-item>
+
+     
+    <br/>
+    <div>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
+        Editar Post
+      </ion-button>
+    </div>
+  
+  </form>
+</ion-content>

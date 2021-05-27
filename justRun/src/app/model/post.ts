@@ -1,5 +1,5 @@
 export class Post {
-    constructor(
+    constructor(//Defino las propiedades dentro del constructor y así no las tengo que volver a definir cuando lo usemos
         public _id: string,
         public title: string,
         public content: string,

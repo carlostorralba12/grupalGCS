@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms'
 import { IonicModule } from '@ionic/angular';
 
 import { UsuarioPageRoutingModule } from './usuario-routing.module';
@@ -13,8 +13,10 @@ import { UsuarioPage } from './usuario.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    UsuarioPageRoutingModule
+    UsuarioPageRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [UsuarioPage]
+  declarations: [UsuarioPage],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UsuarioPageModule {}

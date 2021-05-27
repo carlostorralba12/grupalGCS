@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AuthPageRoutingModule } from './auth-routing.module';
+import { EditEventPageRoutingModule } from './edit-event-routing.module';
 
-import { AuthPage } from './auth.page';
+import { EditEventPage } from './edit-event.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AuthPageRoutingModule
+    EditEventPageRoutingModule
   ],
-  declarations: [AuthPage]
+  declarations: [EditEventPage]
 })
-export class AuthPageModule {}
+export class EditEventPageModule {}
