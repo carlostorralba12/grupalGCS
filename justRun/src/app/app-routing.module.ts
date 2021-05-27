@@ -1,6 +1,8 @@
+import { EditComponent } from './components/usuario/edit/edit.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { LoginComponent } from './components/login/login.component'
+import {RegisterComponent } from './components/register/register.component'
 const routes: Routes = [
   {
     path: '',
@@ -9,10 +11,6 @@ const routes: Routes = [
   {
     path: 'post',
     loadChildren: () => import('./components/post/post.module').then( m => m.PostPageModule)
-  },
-  {
-    path: 'auth',
-    loadChildren: () => import('./components/auth/auth.module').then( m => m.AuthPageModule)
   },
   {
     path: 'event',
@@ -25,7 +23,22 @@ const routes: Routes = [
   {
     path: 'usuario',
     loadChildren: () => import('./components/usuario/usuario.module').then( m => m.UsuarioPageModule)
+  },
+  {
+    path: 'edit-event/:id',
+    loadChildren: () => import('./components/edit-event/edit-event.module').then( m => m.EditEventPageModule)
+  },
+  {
+    path: 'edit-post/:id',
+    loadChildren: () => import('./components/edit-post/edit-post.module').then( m => m.EditPostPageModule)
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'registro', component: RegisterComponent
   }
+
 
 ];
 @NgModule({

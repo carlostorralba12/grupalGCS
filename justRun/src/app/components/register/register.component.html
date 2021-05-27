@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Ajustes de Usuario</ion-title>
+    <ion-title>Registro de Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -36,16 +36,26 @@
         </ion-label>
         <ion-input color="secondary" name= "password" type="password" id="password" #name="ngModel" [(ngModel)]="user.password"></ion-input>
       </ion-item>
-
-      <input type="file"(change)="avatarUpload($event)" id="file0" name="file0"
-    accept="image/png, image/jpeg">
-     
+ 
     <br/>
     <div>
       <ion-button icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
-        Editar Usuario
+        Registrar Usuario
       </ion-button>
     </div>
   
   </form>
+
+  <div *ngIf="status == 'success'">
+    <ion-chip (click)="goToLogin()" color="success">
+      <ion-label> Registro Completado!    Pincha aqui para ir al Login</ion-label>
+    </ion-chip>
+  </div>
+
+  <div *ngIf="status == 'error'">
+    <ion-chip (click)="goToLogin()" color="danger">
+      <ion-label> Error en el registro</ion-label>
+    </ion-chip>
+  </div>
+  
 </ion-content>

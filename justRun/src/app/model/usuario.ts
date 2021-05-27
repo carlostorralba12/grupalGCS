@@ -9,12 +9,3 @@ export class Usuario {
     public image: string        
     ){}
 }
-
-/**
- * name: String,
-    surname: String,
-    email: String,
-    password: String, 
-    image: String,
-    role:String
- */
