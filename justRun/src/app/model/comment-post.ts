@@ -8,4 +8,3 @@ export class CommentPost {
         public user: Usuario
     ){}
 }
-

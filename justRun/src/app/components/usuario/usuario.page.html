@@ -1,9 +1,51 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>usuario</ion-title>
+    <ion-title>Ajustes de Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
 
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating" for="name">
+            Nombre
+        </ion-label>
+        <ion-input color="secondary" name= "name" type="text" id="name" #name="ngModel" [(ngModel)]="user.name"></ion-input>
+      </ion-item>
+    
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating" for="surname">
+            Apellidos
+        </ion-label>
+        <ion-input color="secondary" name= "surname" type="text" id="surname" #name="ngModel" [(ngModel)]="user.surname"></ion-input>
+      </ion-item>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating" for="email">
+            Email
+        </ion-label>
+        <ion-input color="secondary" name= "email" type="email" id="email" #name="ngModel" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+
+      
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating" for="password">
+            Password
+        </ion-label>
+        <ion-input color="secondary" name= "password" type="password" id="password" #name="ngModel" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+
+      <input type="file"(change)="avatarUpload($event)" id="file0" name="file0"
+    accept="image/png, image/jpeg">
+     
+    <br/>
+    <div>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
+        Editar Usuario
+      </ion-button>
+    </div>
+  
+  </form>
 </ion-content>
