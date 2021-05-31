@@ -1,3 +1,55 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" content-id="main-content">
+    <ion-header>
+      <ion-toolbar translucent>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item *ngIf="identity">
+          <ion-img src="{{url+'avatar/'+identity.image}}" class="avatar" *ngIf="identity.image">
+          </ion-img>
+
+          <img src="../assets/userImage/descarga.jpg" class="avatar" *ngIf="!identity.image"/>
+          
+
+         <h2>{{identity.name}}</h2>  
+        </ion-item>
+  
+        <ion-item *ngIf="identity" [routerLink]="['/panel']">
+          <ion-label>Panel de Usuario</ion-label>
+        </ion-item>
+        <ion-item *ngIf="identity">
+          <ion-label>Crear Post</ion-label>
+        </ion-item>
+        <ion-item *ngIf="identity">
+          <ion-label>Crear Evento</ion-label>
+        </ion-item>
+        <ion-item *ngIf="!identity" [routerLink]="['/login']" >
+          <ion-label>Iniciar Sesión</ion-label>
+        </ion-item>
+        <ion-item *ngIf="!identity" [routerLink]="['/registro']">
+          <ion-label>Registrarse</ion-label>
+        </ion-item>
+        <ion-item *ngIf="identity" (click) ="logout()">
+          <ion-label>LogOut</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>JUSTRUN</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-router-outlet></ion-router-outlet>
+    </ion-content>
+  </div>
 </ion-app>
