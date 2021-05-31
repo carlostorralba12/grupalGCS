@@ -1,12 +1,22 @@
+import { AllEventComponent } from './all-event/all-event.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EventPage } from './event.page';
+import { DetailEventComponent } from './detail-event/detail-event.component';
 
 const routes: Routes = [
   {
+    path: 'all',
+    component: AllEventComponent
+  },
+  {
+    path: 'detail-event',
+    component: DetailEventComponent
+  },
+  {
     path: '',
-    component: EventPage
+    redirectTo: 'all',
+    pathMatch: 'full'
   }
 ];
 
