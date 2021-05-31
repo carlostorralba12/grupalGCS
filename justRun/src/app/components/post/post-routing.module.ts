@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'all',
+    redirectTo: 'detail-post',
     pathMatch: 'full'
   }
 ];

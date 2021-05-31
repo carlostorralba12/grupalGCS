@@ -9,7 +9,35 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
- 
+    <ion-item>
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-title>{{ post.user.name + " " + post.user.surname }}</ion-title>
+    </ion-item>
+    <ion-item>
+      {{ post.title }}
+    </ion-item>
+    <ion-item>
+      {{ post.content }}
+    </ion-item>
+    <ion-item *ngIf="post.image.length != 0">
+      <ion-img [src]="'{{ post.image }}'"></ion-img>
+    </ion-item>
+    <ion-item-divider></ion-item-divider>
+    <ion-item>
+      <ion-icon name="send"></ion-icon>
+      <ion-title>Comentarios</ion-title>
+    </ion-item>
+    <ion-list>
+      <ion-item *ngFor="let comment of post.comments">
+        <ion-item>
+          <ion-icon name="person-circle"></ion-icon>
+          <ion-title>{{ comment.user.name + " " + comment.user.surname }}</ion-title>
+        </ion-item>
+        <ion-item>
+          {{ comment.content }}
+        </ion-item>
+      </ion-item>
+    </ion-list>
 </ion-content>
 
 <ion-footer>
@@ -18,9 +46,9 @@
       <ion-item no-padding class="animated fadeInUp">
         <ion-input placeholder="Añadir comentario..." id="comentarioId" type="text" formControlName="comentarioId"></ion-input>
         
-        <ion-button slot="end" color="primary" size="small" type="submit" (click)="addComentario()" 
-        [disabled]="!formComentario.valid">
-          <ion-icon slot="icon-only" name="send"></ion-icon>
+        <ion-button slot="end" color="dark" size="small" type="submit" (click)="addComentario()" 
+        [disabled]="!formComentario.valid" icon-only>
+          <ion-icon name="send"></ion-icon>
         </ion-button>  
       </ion-item>
     </form>
