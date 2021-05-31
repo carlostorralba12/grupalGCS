@@ -40,7 +40,7 @@ export class UsuarioPage implements OnInit {
     }
 
   ngOnInit() {
-    console.log(this._userService.prueba());
+    this.user = this.identity
   }
 
   avatarUpload(data){
@@ -49,6 +49,8 @@ export class UsuarioPage implements OnInit {
 
    console.log(this.file)
 
+   //this.subirImagen()
+
   }
 
   subirImagen() {
@@ -56,14 +58,17 @@ export class UsuarioPage implements OnInit {
       const formData = new FormData()
       formData.append("file0",this.file,this.file.name)
       console.log(formData)
-      this.http.post(this.url+'upload-avatar',formData,{
-        headers: {
-          
-          "Authorization": this.token,
+      this._userService.subirImagen(formData).subscribe(
+        response => {
+          console.log(response.userUpdated, "la imagen subida")
+
+          this.user = response.user
+
+          localStorage.setItem('identity', JSON.stringify(this.user))
+        },
+        error => {
+          console.log(error)
         }
-      }).subscribe(
-        (response) => console.log(response),
-        (error) => console.log(error)
       )
     }
   }
@@ -71,14 +76,20 @@ export class UsuarioPage implements OnInit {
   onSubmit() {
     console.log(this.user, "el user del form")
     this.user._id = this.identity._id
+    this.subirImagen()
    this._userService.update(this.user).subscribe(
      response => {
       if(!response.user){
         this.status = 'error';
       }else{
         this.status = 'success'
+        this.user = response.user
+        if(this.identity.image != null || this.identity.image != ""){
+          this.user.image = this.identity.image
+        }
 
-        this.subirImagen()
+        
+
         localStorage.setItem('identity', JSON.stringify(this.user))
         console.log(this.user, "success")
         //Falta hacer el cambio persistente en el localStorage

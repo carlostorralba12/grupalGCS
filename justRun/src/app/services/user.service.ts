@@ -77,4 +77,12 @@ export class UserService{
 
         return this._http.put(this.url+'update', params, {headers:headers});
     }
+
+    subirImagen(formData):Observable<any> {
+
+        let headers = new HttpHeaders().set('Authorization',this.token)
+
+        return this._http.post(this.url+'upload-avatar',formData, {headers:headers})
+
+    }
 }
