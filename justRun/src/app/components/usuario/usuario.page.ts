@@ -62,7 +62,7 @@ export class UsuarioPage implements OnInit {
         response => {
           console.log(response.userUpdated, "la imagen subida")
 
-          this.user = response.userUpdated
+          this.user = response.user
 
           localStorage.setItem('identity', JSON.stringify(this.user))
         },
