@@ -1,4 +1,3 @@
-import { PostPageModule } from './post.module';
 import { DetailPostComponent } from './detail-post/detail-post.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

@@ -10,9 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RegisterComponent } from './components/register/register.component'
 import {LoginComponent} from './components/login/login.component'
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent,RegisterComponent, LoginComponent],
+  declarations: [AppComponent,RegisterComponent, LoginComponent, HomeComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, PanelModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

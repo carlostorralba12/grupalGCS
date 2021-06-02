@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { PostPageRoutingModule } from './post-routing.module';
 
 import { PostPage } from './post.page';
+import { PostService } from 'src/app/services/post.service';
+import { UserService } from 'src/app/services/user.service';
 
 @NgModule({
   imports: [
@@ -17,6 +19,7 @@ import { PostPage } from './post.page';
     PostPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [PostPage, DetailPostComponent]
+  declarations: [PostPage, DetailPostComponent],
+  providers: [ PostService, UserService ]
 })
 export class PostPageModule {}
