@@ -7,6 +7,7 @@ import { EventService } from 'src/app/services/event.service';
 import { UserService } from 'src/app/services/user.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-detail-event',
@@ -18,7 +19,7 @@ export class DetailEventComponent implements OnInit {
 
   //user: Usuario = new Usuario("1", "Pepe", "García", "pepe@gmail.com","123456", "");
 
-  event: Event = new Event("", "", "", 1, "", "", []);
+  event: Event = new Event("", "", "","" , "", "", []);
 
   formComentario: any;
 
