@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { AllPostComponent } from '../components/post/all-post/all-post.component';
+import { HomeComponent } from '../components/home/home.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('./../components/home/home.module').then(m => m.HomePageModule)
+        component: HomeComponent
       },
       {
         path: 'event',
@@ -23,7 +24,7 @@ const routes: Routes = [
         loadChildren: () => import('./../components/post/post.module').then(m => m.PostPageModule),
       },
       {
-        path: 'usuario/profile',
+        path: 'usuario',
         loadChildren: () => import('./../components/usuario/usuario.module').then(m => m.UsuarioPageModule),
       },
       {

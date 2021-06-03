@@ -1,4 +1,3 @@
-import { PostPageModule } from './post.module';
 import { DetailPostComponent } from './detail-post/detail-post.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,12 +9,12 @@ const routes: Routes = [
     component: AllPostComponent
   },
   {
-    path: 'detail-post',
+    path: 'detail-post/:id',
     component: DetailPostComponent
   },
   {
     path: '',
-    redirectTo: 'detail-post',
+    redirectTo: 'all',
     pathMatch: 'full'
   }
 ];

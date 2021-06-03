@@ -6,7 +6,8 @@ import { LoginComponent } from './components/login/login.component'
 import {RegisterComponent } from './components/register/register.component'
 const routes: Routes = [
   {
-    path: '', component: HomeComponent
+    path: '',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
     path: 'post',
@@ -17,26 +18,16 @@ const routes: Routes = [
     loadChildren: () => import('./components/event/event.module').then( m => m.EventPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./components/home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: 'usuario',
     loadChildren: () => import('./components/usuario/usuario.module').then( m => m.UsuarioPageModule)
   },
   {
-    path: 'edit-event/:id',
-    loadChildren: () => import('./components/edit-event/edit-event.module').then( m => m.EditEventPageModule)
+    path: 'login', 
+    component: LoginComponent
   },
   {
-    path: 'edit-post/:id',
-    loadChildren: () => import('./components/edit-post/edit-post.module').then( m => m.EditPostPageModule)
-  },
-  {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'registro', component: RegisterComponent
+    path: 'registro', 
+    component: RegisterComponent
   }
 
 

@@ -27,12 +27,12 @@ export class AppComponent implements OnInit {
   ) {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
-    this.url = global.url
+    this.url = global.url;
   }
 
   ngOnInit() {
-    console.log(this.identity)
-    console.log(this.token)
+    //console.log(this.identity)
+    //console.log(this.token)
   }
 
   ngDoCheck(){

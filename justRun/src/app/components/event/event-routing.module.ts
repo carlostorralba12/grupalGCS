@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DetailEventComponent } from './detail-event/detail-event.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 const routes: Routes = [
   {
@@ -10,8 +11,12 @@ const routes: Routes = [
     component: AllEventComponent
   },
   {
-    path: 'detail-event',
+    path: 'detail-event/:id',
     component: DetailEventComponent
+  },
+  {
+    path: 'edit-event/:id',
+    component: EditEventComponent
   },
   {
     path: '',

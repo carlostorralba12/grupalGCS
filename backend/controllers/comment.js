@@ -1,5 +1,5 @@
 "use strict";
-var Topic = require("../models/event");
+var Topic = require("../models/topic");
 var validator = require("validator");
 
 var controller = {
@@ -7,7 +7,8 @@ var controller = {
     //Recoger idTopic
     var topicId = req.params.topicId;
     //Find por id del topic
-    Topic.findById(topicId).exec((err, topic) => {
+    Topic.findById(topicId)
+    .exec((err, topic) => {
       console.log("Dentro del metrodo");
       if (err) {
         return res.status(400).send({
@@ -17,7 +18,7 @@ var controller = {
 
       if (!topic) {
         return res.status(400).send({
-          message: "No se ha encontrado el tema",
+          message: "No se ha encontrado el tema de popst",
         });
       }
 
@@ -110,7 +111,7 @@ var controller = {
 
           if (!topicUpdated) {
             return res.status(400).send({
-              message: "No se ha encontrado el tema",
+              message: "No se ha encontrado el tema de post",
             });
           }
           //devolver datos
@@ -136,7 +137,7 @@ var controller = {
 
       if (!topic) {
         return res.status(400).send({
-          message: "No se ha encontrado el tema",
+          message: "No se ha encontrado el tema de post",
         });
       }
 

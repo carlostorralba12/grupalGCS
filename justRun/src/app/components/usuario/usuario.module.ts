@@ -6,7 +6,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { UsuarioPageRoutingModule } from './usuario-routing.module';
 
-import { UsuarioPage } from './usuario.page';
+import { EditComponent } from './edit/edit.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MenuModule } from '../menu/menu.module';
 
 @NgModule({
   imports: [
@@ -14,9 +16,14 @@ import { UsuarioPage } from './usuario.page';
     FormsModule,
     IonicModule,
     UsuarioPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MenuModule
   ],
-  declarations: [UsuarioPage],
+  exports: [
+    EditComponent,
+    ProfileComponent
+  ],
+  declarations: [EditComponent, ProfileComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UsuarioPageModule {}
