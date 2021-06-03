@@ -29,7 +29,7 @@ export class EditEventPage implements OnInit {
     private _eventService: EventService,
     private http: HttpClient
   ) {
-    this.event = new Event ('','','','','','')
+    this.event = new Event ('','','',1,'','',[])
     this.token = _userService.getToken()
     this.identity = _userService.getIdentity()
    }

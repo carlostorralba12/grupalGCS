@@ -9,12 +9,12 @@ const routes: Routes = [
     component: AllPostComponent
   },
   {
-    path: 'detail-post',
+    path: 'detail-post/:id',
     component: DetailPostComponent
   },
   {
     path: '',
-    redirectTo: 'detail-post',
+    redirectTo: 'all',
     pathMatch: 'full'
   }
 ];

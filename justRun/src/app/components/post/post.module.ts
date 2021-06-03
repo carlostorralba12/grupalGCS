@@ -10,6 +10,9 @@ import { PostPageRoutingModule } from './post-routing.module';
 import { PostPage } from './post.page';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
+import { AllPostComponent } from './all-post/all-post.component';
+import { MenuComponent } from '../menu/menu.component';
+import { MenuModule } from '../menu/menu.module';
 
 @NgModule({
   imports: [
@@ -17,9 +20,10 @@ import { UserService } from 'src/app/services/user.service';
     FormsModule,
     IonicModule,
     PostPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MenuModule
   ],
-  declarations: [PostPage, DetailPostComponent],
+  declarations: [PostPage, DetailPostComponent, AllPostComponent],
   providers: [ PostService, UserService ]
 })
 export class PostPageModule {}

@@ -11,11 +11,13 @@ import { AppComponent } from './app.component';
 import {RegisterComponent } from './components/register/register.component'
 import {LoginComponent} from './components/login/login.component'
 import { HomeComponent } from './components/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { MenuModule } from './components/menu/menu.module';
 
 @NgModule({
-  declarations: [AppComponent,RegisterComponent, LoginComponent, HomeComponent],
+  declarations: [AppComponent, RegisterComponent, LoginComponent, HomeComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, PanelModule, ReactiveFormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, PanelModule, ReactiveFormsModule, MenuModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

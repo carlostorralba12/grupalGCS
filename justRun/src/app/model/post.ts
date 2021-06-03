@@ -7,7 +7,7 @@ export class Post {
         public title: string,
         public date: number,
         public content: string,
-        public user: Usuario,
+        public user: any,
         public image:string,
         public comments: CommentPost[]
     ){}

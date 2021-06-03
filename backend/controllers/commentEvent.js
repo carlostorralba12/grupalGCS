@@ -17,7 +17,7 @@ var controller = {
 
       if (!event) {
         return res.status(400).send({
-          message: "No se ha encontrado el tema",
+          message: "No se ha encontrado el tema de eventos",
         });
       }
 
@@ -110,7 +110,7 @@ var controller = {
 
           if (!eventUpdated) {
             return res.status(400).send({
-              message: "No se ha encontrado el tema",
+              message: "No se ha encontrado el tema de eventos",
             });
           }
           //devolver datos
@@ -149,7 +149,7 @@ var controller = {
         event.save((err) => {
           if (err) {
             return res.status(400).send({
-              message: "Error en la petición",
+              message: "Error en la petición de eventos",
             });
           }
           Event.findById(event._id)

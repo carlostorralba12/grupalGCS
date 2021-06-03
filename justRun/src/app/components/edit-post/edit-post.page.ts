@@ -29,7 +29,7 @@ export class EditPostPage implements OnInit {
     private _postService: PostService,
     private http: HttpClient
   ) {
-    this.post = new Post ('','','','','','')
+    this.post = new Post ("","",1,"", "", "", []);
     this.token = _userService.getToken()
    }
 

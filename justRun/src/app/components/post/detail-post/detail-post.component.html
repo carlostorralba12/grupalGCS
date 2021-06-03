@@ -8,10 +8,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="false">
     <ion-item>
       <ion-icon name="person-circle"></ion-icon>
       <ion-title>{{ post.user.name + " " + post.user.surname }}</ion-title>
+      <ion-button *ngIf="post.user._id == identity._id" icon-only color="dark" slot="end" [href]="'/edit-post/' + post._id ">
+        <ion-icon name="pencil"></ion-icon>
+      </ion-button>
     </ion-item>
     <ion-item>
       {{ post.title }}
@@ -20,7 +23,7 @@
       {{ post.content }}
     </ion-item>
     <ion-item *ngIf="post.image.length != 0">
-      <ion-img [src]="'{{ post.image }}'"></ion-img>
+      <ion-img src="{{ url + 'get-image-post/' + post.image }}"></ion-img>
     </ion-item>
     <ion-item>
       <p> {{ post.date }} </p>
@@ -30,31 +33,31 @@
       <ion-icon name="send"></ion-icon>
       <ion-title>Comentarios</ion-title>
     </ion-item>
-    <ion-list>
-      <ion-item *ngFor="let comment of post.comments">
-        <ion-item>
-          <ion-icon name="person-circle"></ion-icon>
-          <ion-title>{{ comment.user.name + " " + comment.user.surname }}</ion-title>
-        </ion-item>
-        <ion-item>
-          {{ comment.content }}
-        </ion-item>
+    <ion-card *ngFor="let comment of post.comments">
+      <ion-item>
+        <ion-icon name="person-circle" slot="start"></ion-icon>
+        <ion-label size="small">{{ comment.user.name + " " + comment.user.surname }}</ion-label>
+        <ion-button slot="end" icon-only size="small" color="dark" type="submit" (click)="deleteComentario(comment._id)">
+          <ion-icon name="trash-bin"></ion-icon>
+        </ion-button>
       </ion-item>
-    </ion-list>
+      <ion-card-content>
+        {{ comment.content }}
+      </ion-card-content>
+    </ion-card>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <form [formGroup]="formComentario" (ngSubmit)="addComentario()">
+    <form [formGroup]="formComentario">
       <ion-item no-padding class="animated fadeInUp">
         <ion-input placeholder="Añadir comentario..." id="comentarioId" type="text" formControlName="comentarioId"></ion-input>
         
         <ion-button slot="end" color="dark" size="small" type="submit" (click)="addComentario()" 
-        [disabled]="!formComentario.valid" icon-only>
+        [disabled]="!formComentario.valid || !identity" icon-only>
           <ion-icon name="send"></ion-icon>
         </ion-button>  
       </ion-item>
     </form>
   </ion-toolbar>
 </ion-footer>
-<!-- || !identity -->

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllEventComponent implements OnInit {
 
+  public title = "EVENTOS";
+  
   constructor() { }
 
   ngOnInit() {}

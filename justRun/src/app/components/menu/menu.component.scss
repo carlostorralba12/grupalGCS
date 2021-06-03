@@ -1,0 +1,14 @@
+.avatar {
+    width: 100px;
+    border-radius: 100px;
+    margin-left: 15px;
+}
+
+ion-toolbar{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    --opacity: .8;
+ }
+ ion-header{
+    backdrop-filter: saturate(180%) blur(20px);
+ }

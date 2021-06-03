@@ -32,13 +32,13 @@ export class PostService {
         return this._http.get(this.url+'topic/'+id);
     }
 
-    updatePost(token, id, post):Observable<any> {
+    updatePost(token, id, post): Observable<any> {
         let params = JSON.stringify(post);
 
         let headers = new HttpHeaders().set('Content-Type', 'application/json')
-        .set('Authorization', token);
+            .set('Authorization', token);
 
-        return this._http.put(this.url+'topic/'+id, params, {headers:headers})
+        return this._http.put(this.url + 'topic/' + id, params, { headers: headers })
     }
 
     deletePost(token, id):Observable<any>{

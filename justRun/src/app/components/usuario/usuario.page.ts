@@ -33,8 +33,8 @@ export class UsuarioPage implements OnInit {
     private _userService: UserService,
     private http: HttpClient
   ) {
-      this.url = global.url
-      this.user = new Usuario('','','','','','')
+      this.url = global.url;
+      this.user = new Usuario('','','','','','');
       this.token = _userService.getToken();
       this.identity = _userService.getIdentity();
     }

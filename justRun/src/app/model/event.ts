@@ -6,7 +6,8 @@ export class Event {
         public _id: string,
         public title: string,
         public content: string,
-        public user: Usuario,
+        public date: number,
+        public user: any,
         public image:string,
         public comments: CommentEvent[]
     ){}
