@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { UsuarioPage } from './usuario.page';
+import { EditComponent } from './edit/edit.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
+    path: 'edit',
+    component: EditComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
     path: '',
-    component: UsuarioPage
+    redirectTo: 'profile',
+    pathMatch: 'full'
   }
 ];
 

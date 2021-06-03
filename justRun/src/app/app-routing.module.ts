@@ -22,18 +22,12 @@ const routes: Routes = [
     loadChildren: () => import('./components/usuario/usuario.module').then( m => m.UsuarioPageModule)
   },
   {
-    path: 'edit-event/:id',
-    loadChildren: () => import('./components/edit-event/edit-event.module').then( m => m.EditEventPageModule)
+    path: 'login', 
+    component: LoginComponent
   },
   {
-    path: 'edit-post/:id',
-    loadChildren: () => import('./components/edit-post/edit-post.module').then( m => m.EditPostPageModule)
-  },
-  {
-    path: 'login', component: LoginComponent
-  },
-  {
-    path: 'registro', component: RegisterComponent
+    path: 'registro', 
+    component: RegisterComponent
   }
 
 

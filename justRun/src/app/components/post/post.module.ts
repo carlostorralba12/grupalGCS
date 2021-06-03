@@ -7,12 +7,12 @@ import { IonicModule } from '@ionic/angular';
 
 import { PostPageRoutingModule } from './post-routing.module';
 
-import { PostPage } from './post.page';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
 import { AllPostComponent } from './all-post/all-post.component';
-import { MenuComponent } from '../menu/menu.component';
 import { MenuModule } from '../menu/menu.module';
+import { AddPostComponent } from './add-post/add-post.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 @NgModule({
   imports: [
@@ -23,7 +23,13 @@ import { MenuModule } from '../menu/menu.module';
     ReactiveFormsModule,
     MenuModule
   ],
-  declarations: [PostPage, DetailPostComponent, AllPostComponent],
+  declarations: [DetailPostComponent, AllPostComponent, AddPostComponent, EditPostComponent],
+  exports: [
+    DetailPostComponent, 
+    AllPostComponent, 
+    AddPostComponent, 
+    EditPostComponent
+  ],
   providers: [ PostService, UserService ]
 })
 export class PostPageModule {}
