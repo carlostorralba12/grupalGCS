@@ -37,7 +37,7 @@
       <ion-item>
         <ion-icon name="person-circle" slot="start"></ion-icon>
         <ion-label size="small">{{ comment.user.name + " " + comment.user.surname }}</ion-label>
-        <ion-button slot="end" icon-only size="small" color="dark" type="submit" (click)="deleteComentario(comment._id)">
+        <ion-button *ngIf="comment.user._id == identity._id" slot="end" icon-only size="small" color="dark" type="submit" (click)="deleteComentario(comment._id)">
           <ion-icon name="trash-bin"></ion-icon>
         </ion-button>
       </ion-item>
