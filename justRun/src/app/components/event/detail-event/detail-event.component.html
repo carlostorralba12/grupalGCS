@@ -1,3 +1,63 @@
-<p>
-  detail-event works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back" defaultHref="/" class="color">  
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>EVENT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+    <ion-item>
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-title>{{ event.user.name + " " + event.user.surname }}</ion-title>
+      <ion-button *ngIf="event.user._id == identity._id" icon-only color="dark" slot="end" [href]="'/edit-event/' + event._id ">
+        <ion-icon name="pencil"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      {{ event.title }}
+    </ion-item>
+    <ion-item>
+      {{ event.content }}
+    </ion-item>
+    <ion-item *ngIf="event.image.length != 0">
+      <ion-img src="{{ url + 'get-image-event/' + event.image }}"></ion-img>
+    </ion-item>
+    <ion-item>
+      <p> {{ event.date }} </p>
+    </ion-item>
+    <ion-item-divider></ion-item-divider>
+    <ion-item>
+      <ion-icon name="send"></ion-icon>
+      <ion-title>Comentarios</ion-title>
+    </ion-item>
+    <ion-card *ngFor="let comment of event.comments">
+      <ion-item>
+        <ion-icon name="person-circle" slot="start"></ion-icon>
+        <ion-label size="small">{{ comment.user.name + " " + comment.user.surname }}</ion-label>
+        <ion-button slot="end" icon-only size="small" color="dark" type="submit" (click)="deleteComentario(comment._id)">
+          <ion-icon name="trash-bin"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-card-content>
+        {{ comment.content }}
+      </ion-card-content>
+    </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <form [formGroup]="formComentario">
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-input placeholder="Añadir comentario..." id="comentarioId" type="text" formControlName="comentarioId"></ion-input>
+        
+        <ion-button slot="end" color="dark" size="small" type="submit" (click)="addComentario()" 
+        [disabled]="!formComentario.valid || !identity" icon-only>
+          <ion-icon name="send"></ion-icon>
+        </ion-button>  
+      </ion-item>
+    </form>
+  </ion-toolbar>
+</ion-footer>

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
   constructor() {}
-
 }

@@ -1,6 +1,10 @@
+import { AllEventComponent } from './../components/event/all-event/all-event.component';
+import { ProfileComponent } from './../components/usuario/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { AllPostComponent } from '../components/post/all-post/all-post.component';
+import { HomeComponent } from '../components/home/home.component';
 
 const routes: Routes = [
   {
@@ -8,27 +12,31 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        path: 'home',
+        component: HomeComponent
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'event',
+        loadChildren: () => import('./../components/event/event.module').then(m => m.EventPageModule),
       },
       {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'post',
+        loadChildren: () => import('./../components/post/post.module').then(m => m.PostPageModule),
+      },
+      {
+        path: 'usuario',
+        loadChildren: () => import('./../components/usuario/usuario.module').then(m => m.UsuarioPageModule),
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: 'home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/home',
     pathMatch: 'full'
   }
 ];

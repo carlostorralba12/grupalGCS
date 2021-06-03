@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class AllPostComponent implements OnInit {
 
   //ruta: /post/all
-  public posts: Post[] = [new Post(), new Post()];
+  //public posts: Post[] = [new Post(), new Post()];
+  public title = "POSTS";
   constructor() { }
 
   ngOnInit() {}
