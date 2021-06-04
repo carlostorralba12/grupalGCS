@@ -44,7 +44,7 @@ export class AddEventComponent  {
       }
   
       goToEvents() {
-        this._router.navigate(['/event/all'])
+        this._router.navigate(['/'])
        }
 
     imageUpload(data){

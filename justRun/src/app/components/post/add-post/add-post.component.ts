@@ -43,7 +43,7 @@ export class AddPostComponent  {
       
 
       goToPosts() {
-        this._router.navigate(['/post/all'])
+        this._router.navigate(['/'])
        }
 
 
