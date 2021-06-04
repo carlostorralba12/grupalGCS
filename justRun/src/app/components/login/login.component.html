@@ -1,8 +1,12 @@
-
+<ion-header>
   <ion-toolbar>
-    <ion-title>Login de Usuario</ion-title>
+    <ion-title >Login de Usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="danger" icon="arrow-back" defaultHref="/" class="color">  
+    </ion-back-button>
+  </ion-buttons>
   </ion-toolbar>
-
+</ion-header>
 
 <ion-content>
   <form  #editForm="ngForm" (ngSubmit)="onSubmit(editForm)" >
@@ -10,7 +14,8 @@
       <ion-label position="floating" for="email">
           Email
       </ion-label>
-      <ion-input color="secondary" name= "email" type="email" id="email" #name="ngModel" [(ngModel)]="user.email"></ion-input>
+      <ion-input color="secondary" name= "email" type="email" id="email" #name="ngModel"
+       [(ngModel)]="user.email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
     </ion-item>
 
     
@@ -18,14 +23,33 @@
       <ion-label position="floating" for="password">
           Password
       </ion-label>
-      <ion-input color="secondary" name= "password" type="password" id="password" #name="ngModel" [(ngModel)]="user.password"></ion-input>
+      <ion-input color="secondary" name= "password" type="password" id="password" #name="ngModel" [(ngModel)]="user.password"
+      minlength="4"></ion-input>
     </ion-item>
 
   <br/>
   <div>
-    <ion-button icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
+    <ion-button [disabled]="!user.password || !user.email" icon-left size="medium" expand="full" shape="round" color="danger" 
+     type="submit" tappable>
       Iniciar Sesión
     </ion-button>
   </div>
   </form>
+  
+<div *ngIf="status == 'success'">
+  <ion-chip  color="success">
+    <ion-label > 
+      <b>Login Completado! </b> 
+    </ion-label>
+  </ion-chip>
+</div>
+
+<div *ngIf="status == 'error'">
+  <ion-chip  color="danger">
+    <ion-label>
+      <b> Error en el Login, Email o Contraseña incorrecta</b>
+      </ion-label>
+  </ion-chip>
+</div>
+
 </ion-content>

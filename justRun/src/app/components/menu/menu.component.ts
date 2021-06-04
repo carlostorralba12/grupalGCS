@@ -47,6 +47,29 @@ export class MenuComponent implements OnInit {
     this.menu.open('end');
   }
 
+  goToMainMenu() {
+    this._router.navigate(['/'])
+  }
+
+  goToProfile() {
+    this._router.navigate(['/usuario/profile'])
+   }
+
+  goToAddEvent() {
+    this._router.navigate(['/event/add'])
+   }
+
+  goToAddPost() {
+    this._router.navigate(['/post/add'])
+  }
+
+  goToLogin() {
+    this._router.navigate(['/login'])
+  }
+
+  goToRegister() {
+    this._router.navigate(['/register'])
+  }
 
 
   logout(){

@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Editar Post</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -25,7 +26,9 @@
      
     <br/>
     <div>
-      <ion-button icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
+      <ion-button (click)="goToPosts()"
+      [disabled]="!post.title || !post.content"
+       icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
         Editar Post
       </ion-button>
     </div>

@@ -32,6 +32,20 @@ export class PostService {
         return this._http.get(this.url+'topic/'+id);
     }
 
+    getPosts():Observable<any>{
+        let header = new HttpHeaders().set('Content-Type', 'applicatioin/json');
+        
+        return this._http.get(this.url+'topics');
+    }
+
+    createPost(token,post):Observable<any> {
+        let params = JSON.stringify(post);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json')
+        .set('Authorization', token);
+
+        return this._http.post(this.url+'topic', params, {headers:headers})
+    }
+
     updatePost(token, id, post): Observable<any> {
         let params = JSON.stringify(post);
 
@@ -47,5 +61,12 @@ export class PostService {
 
         return this._http.delete(this.url+'topic/'+id, {headers:headers})
     }
+    
+    subirImagen(formData,token,id):Observable<any> {
 
+        let headers = new HttpHeaders().set('Authorization',token)
+
+        return this._http.post(this.url+'upload-post/'+id,formData, {headers:headers})
+
+    }
 }

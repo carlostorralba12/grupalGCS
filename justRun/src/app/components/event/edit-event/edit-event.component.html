@@ -25,7 +25,9 @@
      
     <br/>
     <div>
-      <ion-button icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
+      <ion-button (click)="goToEvents()"
+      [disabled]="!event.title || !event.content"
+       icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
         Editar Evento
       </ion-button>
     </div>

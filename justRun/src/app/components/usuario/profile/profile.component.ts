@@ -1,3 +1,4 @@
+import { global } from './../../../services/global';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/model/post';
@@ -5,6 +6,7 @@ import { Event } from 'src/app/model/event';
 import { EventService } from 'src/app/services/event.service';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +22,7 @@ export class ProfileComponent implements OnInit {
   public token;
   public status;
   public identity;
+  public url;
 
   constructor(
     private _route: ActivatedRoute,
@@ -30,6 +33,7 @@ export class ProfileComponent implements OnInit {
   ) { 
     this.token = _userService.getToken();
     this.identity= _userService.getIdentity()
+    this.url= global.url;
   }
 
   ngOnInit() {

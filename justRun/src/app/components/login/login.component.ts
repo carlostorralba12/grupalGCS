@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   public status: string;
   public identity;
   public token;
+  public logueado = false;
 
   constructor(
     private _userService: UserService,
@@ -24,6 +25,8 @@ export class LoginComponent implements OnInit {
   ) { 
     this.user = new Usuario('','','','','','')
   }
+
+  
 
   ngOnInit() {}
 
@@ -41,13 +44,14 @@ export class LoginComponent implements OnInit {
           this._userService.login(this.user, true).subscribe(
             response => {
               if(response.token){
-
+                
                 this.token = response.token
                 localStorage.setItem('token', this.token)
                 console.log(this.token, "el token")
                 this.status = "success"
                 this._router.navigate(['/'])
               }else{
+                //this.logueado=false;
                 this.status = 'error';
               }
             },
@@ -67,5 +71,7 @@ export class LoginComponent implements OnInit {
       }
     )
   }
+
+  
 
 }
