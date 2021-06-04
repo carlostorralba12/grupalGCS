@@ -18,6 +18,7 @@ export class EditPostComponent implements OnInit {
   public token;
   public status;
   public identity;
+  public file;
 
   constructor(
     private _route: ActivatedRoute,
@@ -31,7 +32,7 @@ export class EditPostComponent implements OnInit {
    }
 
    goToPosts() {
-    this._router.navigate(['/post/all'])
+    this._router.navigate(['/usuario/profile'])
    }
 
 
@@ -60,6 +61,35 @@ export class EditPostComponent implements OnInit {
     })
   }
 
+  imageUpload(data){
+    this.file = data.target.files[0];
+   const reader = new FileReader();
+
+   console.log(this.file)
+
+   //this.subirImagen()
+
+  }
+
+
+subirImagen() {
+  if(this.file != null){
+    const formData = new FormData()
+    formData.append("file0",this.file,this.file.name)
+    console.log(formData)
+    this._postService.subirImagen(formData,this.token,this.post._id).subscribe(
+      response => {
+        console.log(response, "la imagen subida")
+        
+      },
+      error => {
+        console.log(error)
+      }
+    )
+  }
+}
+
+
   onSubmit(form){
     var id = this.post._id
     this._postService.updatePost(this.token, id, this.post).subscribe(
@@ -69,6 +99,7 @@ export class EditPostComponent implements OnInit {
           this.post = response.topic
           console.log(this.post)
           this._router.navigate(['/usuario/profile'])
+          this.subirImagen();
         }
       },
       error => console.log(error)

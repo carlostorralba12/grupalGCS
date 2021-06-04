@@ -14,6 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 export class EditEventComponent implements OnInit {
 
   formEditEvent: any
+  public file;
   public event: Event;
   public token;
   public status;
@@ -32,7 +33,7 @@ export class EditEventComponent implements OnInit {
    }
 
    goToEvents() {
-    this._router.navigate(['/event/all'])
+    this._router.navigate(['/usuario/profile'])
    }
 
   ngOnInit() {
@@ -58,6 +59,33 @@ export class EditEventComponent implements OnInit {
     })
   }
 
+  imageUpload(data){
+    this.file = data.target.files[0];
+   const reader = new FileReader();
+
+   console.log(this.file)
+
+   //this.subirImagen()
+
+  }
+
+  subirImagen() {
+    if(this.file != null){
+      const formData = new FormData()
+      formData.append("file0",this.file,this.file.name)
+      console.log(formData)
+      this._eventService.subirImagen(formData,this.token,this.event._id).subscribe(
+        response => {
+          console.log(response, "la imagen subida")
+          
+        },
+        error => {
+          console.log(error)
+        }
+      )
+    }
+  }
+
   onSubmit(form){
     var id = this.event._id
     this._eventService.updateEvent(this.token, id, this.event).subscribe(
@@ -66,6 +94,7 @@ export class EditEventComponent implements OnInit {
           this.status = 'success',
           this.event = response.event
           console.log(this.event)
+          this.subirImagen();
         }
       },
       error => console.log(error)

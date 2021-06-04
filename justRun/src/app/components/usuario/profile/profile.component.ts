@@ -36,6 +36,12 @@ export class ProfileComponent implements OnInit {
     this.url= global.url;
   }
 
+  goToMainMenu() {
+    this._router.navigate(['/'])
+   }
+
+   
+
   ngOnInit() {
     this.getPosts();
     this.getEvents()

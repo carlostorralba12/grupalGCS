@@ -23,10 +23,18 @@
         <ion-textarea color="secondary" name= "content" type="text" id="content" #name="ngModel" [(ngModel)]="post.content"></ion-textarea>
       </ion-item>
 
-     
+      <ion-item>
+        <ion-button color="danger" expand="full">
+          <ion-icon  lazy="true" slot="start" name="image"></ion-icon>
+          <ion-label >Subir Imagen</ion-label>
+          <input type="file"(change)="imageUpload($event)" id="file0" name="file0"
+          accept="image/png, image/jpeg">
+        </ion-button>
+      </ion-item>
+
     <br/>
     <div>
-      <ion-button (click)="goToPosts()"
+      <ion-button  (click)="goToPosts()" 
       [disabled]="!post.title || !post.content"
        icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
         Editar Post
