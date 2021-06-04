@@ -30,6 +30,11 @@ export class EditPostComponent implements OnInit {
     this.token = _userService.getToken()
    }
 
+   goToPosts() {
+    this._router.navigate(['/post/all'])
+   }
+
+
   ngOnInit() {
     this.getPost()
   }

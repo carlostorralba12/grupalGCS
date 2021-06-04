@@ -4,11 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DetailEventComponent } from './detail-event/detail-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 const routes: Routes = [
   {
     path: 'all',
     component: AllEventComponent
+  },
+  {
+    path: 'add',
+    component: AddEventComponent
   },
   {
     path: 'detail-event/:id',

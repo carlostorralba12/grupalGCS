@@ -1,4 +1,30 @@
-<app-menu [title]="title"></app-menu>
-<ion-content id="main-content">
-    <ion-button block href="/event/detail-event/60b376af839a0d07cc6f1404"></ion-button>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back" defaultHref="/" class="color">  
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Eventos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  
+    
+  <ion-card class="itemContent" *ngFor="let event of events" [routerLink]="'/event/detail-event/'+ event._id" >
+    <ion-item>   
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-title>{{ event.user.name + " " + event.user.surname }}</ion-title>
+        
+    </ion-item>
+    <ion-item>{{ event.title }}</ion-item>
+    <ion-item *ngIf="event.image.length != 0">
+      <ion-img src="{{ url + 'get-image-event/' + event.image }}"></ion-img>
+    </ion-item> 
+    <ion-item>
+      <p> {{ event.date | date }} </p>
+    </ion-item>
+    
+  </ion-card>
+
 </ion-content>

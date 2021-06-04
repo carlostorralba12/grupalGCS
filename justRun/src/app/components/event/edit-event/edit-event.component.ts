@@ -31,6 +31,10 @@ export class EditEventComponent implements OnInit {
     this.identity = _userService.getIdentity()
    }
 
+   goToEvents() {
+    this._router.navigate(['/event/all'])
+   }
+
   ngOnInit() {
     this.getEvent()
   }

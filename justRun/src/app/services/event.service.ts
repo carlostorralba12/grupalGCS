@@ -29,6 +29,20 @@ export class EventService {
         return this._http.get(this.url+'event/'+id);
     }
 
+    getEvents():Observable<any>{
+        let header = new HttpHeaders().set('Content-Type', 'applicatioin/json');
+
+        return this._http.get(this.url+'events');
+    }
+
+    createEvent(token,event):Observable<any> {
+        let params = JSON.stringify(event);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json')
+        .set('Authorization', token);
+
+        return this._http.post(this.url+'event', params, {headers:headers})
+    }
+
     updateEvent(token, id, event):Observable<any> {
         let params = JSON.stringify(event);
 
@@ -43,6 +57,14 @@ export class EventService {
         .set('Authorization', token);
 
         return this._http.delete(this.url+'event/'+id, {headers:headers})
+    }
+
+    subirImagen(formData,token,id):Observable<any> {
+
+        let headers = new HttpHeaders().set('Authorization',token)
+
+        return this._http.post(this.url+'upload-event/'+id,formData, {headers:headers})
+
     }
 
 }

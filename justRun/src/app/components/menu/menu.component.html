@@ -1,7 +1,7 @@
 <ion-menu side="start" content-id="main-content">
   <ion-header>
     <ion-toolbar translucent>
-      <ion-title>Menu</ion-title>
+      <ion-title  (click)="goToMainMenu()" >Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -16,22 +16,22 @@
        <h2>{{identity.name}}</h2>  
       </ion-item>
 
-      <ion-item *ngIf="identity" [routerLink]="['/usuario/profile']">
+      <ion-item (click)="goToProfile()" *ngIf="identity" [routerLink]="['/usuario/profile']">
         <ion-label>Panel de Usuario</ion-label>
       </ion-item>
-      <ion-item *ngIf="identity">
+      <ion-item (click)="goToAddPost()" *ngIf="identity">
         <ion-label>Crear Post</ion-label>
       </ion-item>
-      <ion-item *ngIf="identity">
+      <ion-item (click)="goToAddEvent()" *ngIf="identity">
         <ion-label>Crear Evento</ion-label>
       </ion-item>
-      <ion-item *ngIf="!identity" [routerLink]="['/login']" >
+      <ion-item (click)="goToLogin()" *ngIf="!identity" [routerLink]="['/login']" >
         <ion-label>Iniciar Sesión</ion-label>
       </ion-item>
-      <ion-item *ngIf="!identity" [routerLink]="['/registro']">
+      <ion-item (click)="goToRegister()" *ngIf="!identity" [routerLink]="['/registro']">
         <ion-label>Registrarse</ion-label>
       </ion-item>
-      <ion-item *ngIf="identity" (click) ="logout()">
+      <ion-item (click)="logout()" *ngIf="identity" (click) ="logout()">
         <ion-label>LogOut</ion-label>
       </ion-item>
     </ion-list>

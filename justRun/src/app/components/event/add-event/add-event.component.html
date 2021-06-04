@@ -1,3 +1,48 @@
-<p>
-  add-event works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear Evento</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back" defaultHref="/" class="color">  
+    </ion-back-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formCreateEvent="ngForm" (ngSubmit)="onSubmit(formCreateEvent)">
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating" for="title">
+            Nombre
+        </ion-label>
+        <ion-input color="secondary" name= "name" type="text" id="title" #name="ngModel" [(ngModel)]="event.title"></ion-input>
+      </ion-item>
+    
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating" for="content">
+            Contenido
+        </ion-label>
+        <ion-textarea color="secondary" name= "content" type="text" id="content" #name="ngModel" [(ngModel)]="event.content"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="danger" expand="full">
+          <ion-icon  lazy="true" slot="start" name="image"></ion-icon>
+          <ion-label >Subir Imagen</ion-label>
+          <input type="file"(change)="imageUpload($event)" id="file0" name="file0"
+          accept="image/png, image/jpeg">
+        </ion-button>
+      </ion-item>
+     
+    <br/>
+    <div>
+      <ion-button (click)="goToEvents()"
+      [disabled]="!event.title || !event.content" 
+      icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
+        Crear Evento
+      </ion-button>
+    </div>
+  
+  </form>
+</ion-content>
