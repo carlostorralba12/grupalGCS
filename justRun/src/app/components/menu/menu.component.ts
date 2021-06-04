@@ -52,7 +52,7 @@ export class MenuComponent implements OnInit {
   }
 
   goToProfile() {
-    this._router.navigate(['/usuario/profile'])
+    this._router.navigate(['/tabs/usuario'])
    }
 
   goToAddEvent() {
@@ -68,7 +68,7 @@ export class MenuComponent implements OnInit {
   }
 
   goToRegister() {
-    this._router.navigate(['/register'])
+    this._router.navigate(['/registro'])
   }
 
 

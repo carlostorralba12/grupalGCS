@@ -48,12 +48,9 @@ export class EditPostComponent implements OnInit {
 
       this._postService.getPost(id).subscribe(
         response => {
-          if(!response){
-            this._router.navigate(['/usuario/profile'])
-          }else{
+    
             this.post = response.topic;
-            console.log(this.post)
-          }
+            
         },
         error => console.log(error)
       )
@@ -98,8 +95,12 @@ subirImagen() {
           this.status = 'success',
           this.post = response.topic
           console.log(this.post)
-          this._router.navigate(['/usuario/profile'])
           this.subirImagen();
+          this._router.navigate(['/post/detail-post/'+ this.post._id])
+          .then(() => {
+            window.location.reload();
+          });
+         
         }
       },
       error => console.log(error)

@@ -15,6 +15,9 @@
       <ion-button *ngIf="event.user._id == identity._id" icon-only color="dark" slot="end" [href]="'/edit-event/' + event._id ">
         <ion-icon name="pencil"></ion-icon>
       </ion-button>
+      <ion-button *ngIf="event.user._id == identity._id" icon-only color="dark" slot="end" (click)="deleteEvent(event._id)">
+        <ion-icon name="trash-bin"></ion-icon>
+      </ion-button>
     </ion-item>
     <ion-item>
       {{ event.title }}
@@ -22,7 +25,7 @@
     <ion-item>
       {{ event.content }}
     </ion-item>
-    <ion-item *ngIf="event.image.length != 0">
+    <ion-item *ngIf="event.image">
       <ion-img src="{{ url + 'get-image-event/' + event.image }}"></ion-img>
     </ion-item>
     <ion-item>

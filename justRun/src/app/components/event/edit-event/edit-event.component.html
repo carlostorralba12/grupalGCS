@@ -1,7 +1,12 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back" [defaultHref]="'/event/detail-event/'+ event._id" class="color">  
+      </ion-back-button>
+    </ion-buttons>
     <ion-title>Editar Evento</ion-title>
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
@@ -33,7 +38,7 @@
      
     <br/>
     <div>
-      <ion-button (click)="goToEvents()"
+      <ion-button
       [disabled]="!event.title || !event.content"
        icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
         Editar Evento

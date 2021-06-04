@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back" [defaultHref]="'/post/detail-post/'+ post._id" class="color">  
+      </ion-back-button>
+    </ion-buttons>
     <ion-title>Editar Post</ion-title>
     
   </ion-toolbar>
@@ -34,7 +38,7 @@
 
     <br/>
     <div>
-      <ion-button  (click)="goToPosts()" 
+      <ion-button 
       [disabled]="!post.title || !post.content"
        icon-left size="medium" expand="full" shape="round" color="warning" type="submit" tappable>
         Editar Post

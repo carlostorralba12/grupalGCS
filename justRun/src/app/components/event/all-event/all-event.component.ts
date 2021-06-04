@@ -23,6 +23,7 @@ export class AllEventComponent implements OnInit {
   public status;
   public identity;
   _eventService: any;
+  public title = "Events";
 
   constructor(private fb: FormBuilder,
     private srvEvent: EventService,

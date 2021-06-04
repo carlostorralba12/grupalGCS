@@ -60,7 +60,20 @@ export class DetailPostComponent implements OnInit {
       }
     );
   }
+  deletePost(id){
+    this.srvPost.deletePost(this.token, id).subscribe(
 
+      complete => {
+        this.router.navigate(['/tabs/post'])
+        .then(() => {
+          window.location.reload();
+        });
+      },
+      error => console.log(error)
+    )
+  }
+
+ 
   public addComentario(){
     var comment: CommentPost = new CommentPost("", this.formComentario.value.comentarioId, Date.now(), this.identity);
 

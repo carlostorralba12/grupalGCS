@@ -26,6 +26,7 @@ export class AllPostComponent  implements OnInit {
   public identity;
   public posts: Array<Post>;
   public url;
+  public title = "Posts";
 
   constructor(
   private _route: ActivatedRoute,

@@ -47,11 +47,9 @@ export class EditEventComponent implements OnInit {
 
       this._eventService.getEvent(id).subscribe(
         response => {
-          if(!response){
-            this._router.navigate(['/usuario/profile'])
-          }else{
+         
             this.event = response.event;
-          }
+           
         },
         error => console.log(error)
       )
@@ -95,6 +93,10 @@ export class EditEventComponent implements OnInit {
           this.event = response.event
           console.log(this.event)
           this.subirImagen();
+          this._router.navigate(['/event/detail-event/'+ this.event._id])
+          .then(() => {
+            window.location.reload();
+          });
         }
       },
       error => console.log(error)

@@ -1,14 +1,6 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Posts</ion-title>
-      <ion-buttons slot="start">
-        <ion-back-button icon="arrow-back" defaultHref="/" class="color">  
-      </ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-menu [title]="title"></app-menu>
 
-<ion-content [fullscreen]="true">
+<ion-content id="main-content" [fullscreen]="true">
   <ion-card class="itemContent" *ngFor="let post of posts" [routerLink]="'/post/detail-post/'+ post._id" >
     <ion-item>   
       <ion-icon name="person-circle"></ion-icon>
@@ -17,7 +9,7 @@
     </ion-item>
     <ion-item color="danger" >{{ post.title }}</ion-item>
     
-    <ion-item *ngIf="post.image.length != 0">
+    <ion-item *ngIf="post.image">
       <ion-img src="{{ url + 'get-image-post/' + post.image }}"></ion-img>
     </ion-item> 
     <ion-item >{{ post.content }}</ion-item>

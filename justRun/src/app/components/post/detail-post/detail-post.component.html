@@ -15,6 +15,9 @@
       <ion-button *ngIf="post.user._id == identity._id" icon-only color="dark" slot="end" [href]="'/edit-post/' + post._id ">
         <ion-icon name="pencil"></ion-icon>
       </ion-button>
+      <ion-button *ngIf="post.user._id == identity._id" icon-only color="dark" slot="end" (click)="deletePost(post._id)">
+        <ion-icon name="trash-bin"></ion-icon>
+      </ion-button>
     </ion-item>
     <ion-item>
       {{ post.title }}
@@ -22,7 +25,7 @@
     <ion-item>
       {{ post.content }}
     </ion-item>
-    <ion-item *ngIf="post.image.length != 0">
+    <ion-item *ngIf="post.image">
       <ion-img src="{{ url + 'get-image-post/' + post.image }}"></ion-img>
     </ion-item>
     <ion-item>

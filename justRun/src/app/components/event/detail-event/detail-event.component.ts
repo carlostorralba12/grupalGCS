@@ -59,6 +59,18 @@ export class DetailEventComponent implements OnInit {
     );
   }
 
+  deleteEvent(id){
+    this.srvEvent.deleteEvent(this.token, id).subscribe(
+      complete => {
+        this.router.navigate(['/tabs/event'])
+        .then(() => {
+          window.location.reload();
+        });
+      },
+      error => console.log(error)
+    )
+  }
+
   public addComentario(){
     var comment: CommentEvent = new CommentEvent("", this.formComentario.value.comentarioId, Date.now(), this.identity);
 

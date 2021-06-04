@@ -43,7 +43,10 @@ export class AddPostComponent  {
       
 
       goToPosts() {
-        this._router.navigate(['/'])
+        this._router.navigate(['/tabs/post'])
+        .then(() => {
+          window.location.reload();
+        });
        }
 
 

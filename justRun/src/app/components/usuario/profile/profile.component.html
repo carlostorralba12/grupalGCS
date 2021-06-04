@@ -1,15 +1,15 @@
 <app-menu [title]="title" > </app-menu>
-<ion-content fullscreen id="content-main">
+<ion-content id="main-content">
   <ion-button class="btn-editUser" [routerLink]="['/usuario/edit']">Editar Usuario</ion-button>
   <ion-list>
     <ion-list-header>Mis Posts</ion-list-header>
     <ion-item class="itemContent" *ngFor="let post of posts">
       <h6>{{post.title}}</h6>
-      <ion-item *ngIf="post.image.length != 0">
+      <ion-item *ngIf="post.image">
         <ion-img src="{{ url + 'get-image-post/' + post.image }}" style="width: 50px; height: 50px"></ion-img>
       </ion-item> 
-      <ion-button  [routerLink]="['/post/edit-post', post._id]"  class="btn" color="warning" >Editar</ion-button> 
-      <ion-button class="btn2" (click)="deletePost(post._id)" color="danger">Eliminar</ion-button>  
+      <!--ion-button  [routerLink]="['/post/edit-post', post._id]"  class="btn" color="warning" >Editar</!--ion-button> 
+      <ion-button-- class="btn2" (click)="deletePost(post._id)" color="danger">Eliminar</ion-button-->  
     </ion-item>
   </ion-list>
 
@@ -17,19 +17,12 @@
     <ion-list-header>Mis Entrenamientos</ion-list-header>
     <ion-item class="itemContent" *ngFor="let event of events">
       <h6>{{event.title}}</h6>
-      <ion-item *ngIf="event.image.length != 0">
+      <ion-item *ngIf="event.image">
         <ion-img src="{{ url + 'get-image-event/' + event.image }}" style="width: 50px; height: 50px"></ion-img>
       </ion-item> 
-      <ion-button  class="btn" color="warning" [routerLink]="['/event/edit-event', event._id]">Editar</ion-button> 
-      <ion-button class="btn2" color="danger"  (click)="deleteEvent(event._id)" >Eliminar</ion-button>  
+      <!--ion-button  class="btn" color="warning" [routerLink]="['/event/edit-event', event._id]">Editar</-ion-button> 
+      <ion-button-- class="btn2" color="danger"  (click)="deleteEvent(event._id)" >Eliminar</ion-button-->  
     </ion-item>
   </ion-list>
-
-  <div class="wrapper">
-    <label color="danger" >
-      <ion-icon color="light" lazy="true" slot="start" name="home"></ion-icon>
-    <button color="danger"  (click)="goToMainMenu()" class="button" ></button>
-  </label>
-  </div>
  
 </ion-content>

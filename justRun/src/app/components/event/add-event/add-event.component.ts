@@ -44,7 +44,10 @@ export class AddEventComponent  {
       }
   
       goToEvents() {
-        this._router.navigate(['/'])
+        this._router.navigate(['/tabs/event'])
+        .then(() => {
+          window.location.reload();
+        });
        }
 
     imageUpload(data){
